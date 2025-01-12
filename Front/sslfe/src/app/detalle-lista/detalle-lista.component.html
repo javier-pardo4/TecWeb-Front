@@ -1,0 +1,199 @@
+<div class="area">
+  <ul class="circles">
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+  </ul>
+</div>
+
+<button (click)="volverAtras()" class="btn-back btn-with-image">
+  <div class="image-wrapper">
+    <img src="images/Back.png" alt="Volver" class="btn-image" />
+  </div>
+</button>
+
+
+
+<h1 class="text-center my-4">Detalle de la Lista</h1>
+
+<!-- Mostrar el nombre de la lista seleccionada -->
+<div class="text-center mb-4">
+  <h2 class="text-primary">Lista: {{ lista }}</h2>
+</div>
+
+
+<!-- Botones combinados -->
+<div class="text-center mb-4">
+  <!-- Botón para abrir el chat -->
+  <button 
+    class="btn btn-success mt-2" 
+    (click)="abrirChat()">
+    <i class="bi bi-chat-dots"></i> Abrir Chat
+  </button>
+  
+  <!-- Botón para añadir invitado -->
+  <button 
+    class="btn btn-primary mt-2 ms-2" 
+    data-bs-toggle="modal" 
+    data-bs-target="#modalInvitar">
+    <i class="bi bi-person-plus"></i> Añadir Invitado
+  </button>
+</div>
+
+
+
+<!-- Chat de la lista -->
+<div *ngIf="chatAbierto" class="container border rounded p-3 my-4" style="max-width: 500px;">
+  <h3 class="text-secondary mb-3">Chat de la Lista</h3>
+  <div class="chat-box border p-2 mb-3" style="height: 300px; overflow-y: auto; background-color: #f9f9f9;">
+    <div *ngFor="let mensaje of mensajes">
+      <strong>{{ mensaje.email }}</strong>: {{ mensaje.contenido }}
+    </div>
+  </div>
+  <form (ngSubmit)="enviarMensaje()">
+    <div class="input-group">
+      <input 
+        type="text" 
+        class="form-control" 
+        [(ngModel)]="nuevoMensaje" 
+        name="nuevoMensaje" 
+        placeholder="Escribe tu mensaje..." 
+        required 
+      />
+      <button class="btn btn-primary" type="submit">
+        <i class="bi bi-send"></i> Enviar
+      </button>
+    </div>
+  </form>
+</div>
+
+<!-- Mostrar mensaje si no hay productos -->
+<div *ngIf="productos.length === 0" class="alert alert-warning text-center">
+  <p>No hay productos en esta lista.</p>
+</div>
+
+<!-- Tabla para mostrar los productos -->
+<div *ngIf="productos.length > 0" class="container">
+  <h3 class="mb-3 text-secondary">Productos en la Lista</h3>
+  <table class="table table-bordered table-striped">
+    <thead class="table-dark">
+      <tr>
+        <th>Nombre del Producto</th>
+        <th>Unidades Pedidas</th>
+        <th>Unidades Compradas</th>
+        <th>Unidades Restantes</th>
+        <th>Acción</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let producto of productos">
+        <td>{{ producto.nombre }}</td>
+        <td>{{ producto.unidadesPedidas }}</td>
+        <td>{{ producto.unidadesCompradas }}</td>
+        <td>{{ producto.unidadesPedidas - producto.unidadesCompradas }}</td>
+        <td>
+          <!-- Botón para aumentar unidades pedidas -->
+          <button class="btn btn-primary btn-sm me-2" (click)="aumentarUnidadesPedidas(producto)">
+            <i class="bi bi-plus-circle"></i> Pedir
+          </button>
+          <!-- Botón para aumentar unidades compradas -->
+          <button class="btn btn-success btn-sm me-2" (click)="aumentarUnidadesCompradas(producto)">
+            <i class="bi bi-plus-circle"></i> Comprar
+          </button>
+          <!-- Botón para eliminar producto -->
+          <button class="btn btn-danger btn-sm" (click)="eliminarProducto(producto)">
+            <i class="bi bi-trash"></i> Eliminar
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- Formulario para añadir productos -->
+<div class="container my-4">
+  <h3 class="text-secondary mb-3">Añadir Producto a la Lista</h3>
+  <form (ngSubmit)="aniadirProducto()" class="row g-3">
+    <div class="col-md-4">
+      <label for="nombreProducto" class="form-label">Nombre del Producto:</label>
+      <input
+        id="nombreProducto"
+        type="text"
+        class="form-control"
+        [(ngModel)]="nuevoProducto"
+        name="nombreProducto"
+        required
+      />
+    </div>
+
+    <div class="col-md-4">
+      <label for="unidadesPedidas" class="form-label">Unidades Pedidas:</label>
+      <input
+        id="unidadesPedidas"
+        type="number"
+        class="form-control"
+        [(ngModel)]="unidadesPedidas"
+        name="unidadesPedidas"
+        required
+      />
+    </div>
+
+    <div class="col-md-4">
+      <label for="unidadesCompradas" class="form-label">Unidades Compradas:</label>
+      <input
+        id="unidadesCompradas"
+        type="number"
+        class="form-control"
+        [(ngModel)]="unidadesCompradas"
+        name="unidadesCompradas"
+        required
+      />
+    </div>
+
+    <div class="col-12">
+      <button type="submit" class="btn btn-primary">
+        <i class="bi bi-plus-circle"></i> Añadir Producto
+      </button>
+    </div>
+  </form>
+</div>
+
+<!-- Modal para invitar a un usuario -->
+<div class="modal fade" id="modalInvitar" tabindex="-1" aria-labelledby="modalInvitarLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalInvitarLabel">Añadir Invitado a la Lista</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form (ngSubmit)="aniadirInvitado()">
+          <div class="mb-3">
+            <label for="emailInvitado" class="form-label">Correo Electrónico:</label>
+            <input
+              id="emailInvitado"
+              type="email"
+              class="form-control"
+              [(ngModel)]="emailInvitado"
+              name="emailInvitado"
+              required
+            />
+          </div>
+          <button type="submit" class="btn btn-primary w-100">
+            <i class="bi bi-send"></i> Enviar Invitación
+          </button>
+          <div *ngIf="invitado" class="success-message">
+            <a [href]="linkInv" target="_blank">Link de invitación</a>
+          </div>          
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

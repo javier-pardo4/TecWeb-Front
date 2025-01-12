@@ -1,0 +1,115 @@
+<div class="area">
+  <ul class="circles">
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+  </ul>
+</div>
+
+<div class="icon-container">
+  <img src="images/tienda.png" class="inicio-icon" alt="Icono de la tienda">
+  <img src="images/alta-calidad.png" class="inicio-icon" alt="Icono premium">
+</div>
+
+<h1 class="page-title">¡Paga por tu Plan Premium y mejora tu experiencia!</h1>
+
+<!-- Contenedor de las tarjetas -->
+<div class="cards-container" id="cards-container">
+  <!-- Tarjeta Free -->
+  <div class="card free">
+    <div class="pricing-block-content">
+      <p class="pricing-plan">Starter</p>
+      <div class="price-value">
+        <p class="price-number">€<span class="price-integer">0</span></p>
+        <div id="priceDiscountCent">/mes</div>
+      </div>
+      <ul class="check-list">
+        <li class="check-list-item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-circle" viewBox="0 0 16 16">
+            <path d="M12.354 4.646a1 1 0 0 1 0 1.414l-6 6a1 1 0 0 1-1.414 0l-3-3a1 1 0 0 1 1.414-1.414L6 9.586l5.646-5.64a1 1 0 0 1 1.414 0z"/>
+          </svg>
+          Hasta 2 listas
+        </li>
+        <li class="check-list-item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-circle" viewBox="0 0 16 16">
+            <path d="M12.354 4.646a1 1 0 0 1 0 1.414l-6 6a1 1 0 0 1-1.414 0l-3-3a1 1 0 0 1 1.414-1.414L6 9.586l5.646-5.64a1 1 0 0 1 1.414 0z"/>
+          </svg>
+          10 Productos por lista
+        </li>
+        <li class="check-list-item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-circle" viewBox="0 0 16 16">
+            <path d="M12.354 4.646a1 1 0 0 1 0 1.414l-6 6a1 1 0 0 1-1.414 0l-3-3a1 1 0 0 1 1.414-1.414L6 9.586l5.646-5.64a1 1 0 0 1 1.414 0z"/>
+          </svg>
+          1 invitación por lista
+        </li>
+      </ul>
+      <p class="plan-actual-text">Plan Actual</p>
+    </div>
+  </div>
+
+  <!-- Tarjeta Premium -->
+  <div class="card premium">
+    <div class="pricing-block-content">
+      <p class="pricing-plan">Premium</p>
+      <div class="price-value">
+        <p class="price-number">€<span class="price-integer">3</span></p>
+        <div id="priceDiscountCent">/mes</div>
+      </div>
+      <ul class="check-list">
+        <li class="check-list-item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-circle" viewBox="0 0 16 16">
+            <path d="M12.354 4.646a1 1 0 0 1 0 1.414l-6 6a1 1 0 0 1-1.414 0l-3-3a1 1 0 0 1 1.414-1.414L6 9.586l5.646-5.64a1 1 0 0 1 1.414 0z"/>
+          </svg>
+          Listas ilimitadas
+        </li>
+        <li class="check-list-item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-circle" viewBox="0 0 16 16">
+            <path d="M12.354 4.646a1 1 0 0 1 0 1.414l-6 6a1 1 0 0 1-1.414 0l-3-3a1 1 0 0 1 1.414-1.414L6 9.586l5.646-5.64a1 1 0 0 1 1.414 0z"/>
+          </svg>
+          Productos ilimitados
+        </li>
+        <li class="check-list-item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-circle" viewBox="0 0 16 16">
+            <path d="M12.354 4.646a1 1 0 0 1 0 1.414l-6 6a1 1 0 0 1-1.414 0l-3-3a1 1 0 0 1 1.414-1.414L6 9.586l5.646-5.64a1 1 0 0 1 1.414 0z"/>
+          </svg>
+          Invitaciones ilimitadas
+        </li>
+      </ul>
+      <div class="premium-btn-container">
+        <button class="card-btn premium-btn" id="premium-btn">Hazte Premium</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Contenedor del formulario de pago -->
+<div class="payment-container" id="payment-container" style="display: none;">
+  <form id="payment-form" class="payment-form">
+    <div class="input-group">
+      <label for="amount">Importe a pagar (EUR):</label>
+      <input type="number" step="0.01" id="amount" name="amount" value="3.00" readonly required>
+    </div>
+
+    <div class="input-group">
+      <label for="email">Correo electrónico:</label>
+      <input type="email" id="email" name="email" placeholder="tuemail@example.com" required>
+    </div>
+
+    <button type="button" id="pay-button" class="pay-button">Ir al Pago</button>
+  </form>
+
+  <div id="stripe-form" class="stripe-form" style="display: none;">
+    <h2>Completar Pago</h2>
+    <form id="stripe-payment-form">
+      <!-- El formulario de Stripe se insertará aquí -->
+    </form>
+    <button type="button" id="confirm-payment-button" class="confirm-button" style="display: none;">Confirmar Pago</button>
+  </div>
+</div>

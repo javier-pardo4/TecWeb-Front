@@ -1,0 +1,34 @@
+<div class="area">
+    <ul class="circles">
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+  </div>
+  
+  <div class="confirm-account-container">
+    <h2 class="title">Confirmar Cuenta</h2>
+    <p class="description">
+      Haz clic en el botón de abajo para confirmar tu cuenta.
+    </p>
+  
+    <!-- Condicional para mostrar el mensaje de éxito o el botón -->
+    <div *ngIf="!accountConfirmed; else confirmedMessage">
+      <button class="btn btn-primary" (click)="confirmAccount()">
+        Confirmar Cuenta
+      </button>
+    </div>
+  
+    <!-- Plantilla alternativa para mostrar el mensaje cuando la cuenta se confirma -->
+    <ng-template #confirmedMessage>
+      <p>¡Cuenta Confirmada!</p>
+    </ng-template>
+  </div>
+  

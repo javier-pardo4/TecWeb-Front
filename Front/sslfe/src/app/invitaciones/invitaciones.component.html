@@ -1,0 +1,34 @@
+<div class="area">
+    <ul class="circles">
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+  </div>
+  
+  <div class="container">
+    <h1>Invitación a la Lista</h1>
+    <p><strong>{{ invitadorEmail }}</strong> te ha invitado a participar en la lista <strong>"{{ listaNombre }}"</strong>.</p>
+    <p>¿Quieres aceptar la invitación y participar en esta lista?</p>
+  </div>
+  
+  <div class="button-container">
+    <button 
+      class="btn-aceptar" 
+      (click)="aceptarInvitacion()" 
+      [disabled]="loading">
+      {{ loading ? 'Procesando...' : 'Aceptar Invitación' }}
+    </button>
+  </div>
+  
+  
+  
+  
+  

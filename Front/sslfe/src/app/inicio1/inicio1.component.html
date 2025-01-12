@@ -1,0 +1,123 @@
+<div class="area">
+  <ul class="circles">
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+  </ul>
+</div>
+
+
+<header>
+  <div class="logo">
+    <h1>ShopEase</h1>
+  </div>
+  <div class="auth-button">
+    <button (click)="navigateToLogin()">Iniciar Sesión</button>
+  </div>
+</header>
+
+<main class="content">
+  <!-- Introducción -->
+  <section class="introduction">
+    <h2>¡Organiza tus compras de forma colaborativa!</h2>
+    <p>
+      Con <span class="app-name">ShopEase</span>, crea, comparte y gestiona tus listas de la compra en tiempo real con amigos o familiares.
+    </p>
+    <p>Empieza ahora y transforma tu experiencia de compras.</p>
+  </section>
+
+  <!-- Funcionalidades principales -->
+  <section class="features">
+    <div class="feature-card">
+      <h3>Crear listas</h3>
+      <p>Crea listas personalizadas para cualquier ocasión de manera sencilla.</p>
+    </div>
+    <div class="feature-card">
+      <h3>Comparte</h3>
+      <p>Envía un enlace y comparte tus listas con quien desees.</p>
+    </div>
+    <div class="feature-card">
+      <h3>En tiempo real</h3>
+      <p>Las actualizaciones se sincronizan automáticamente entre todos los usuarios.</p>
+    </div>
+  </section>
+
+<!-- Planes -->
+<section class="plans">
+  <h2 class="section-title">Elige tu plan</h2>
+  <p class="section-description">Selecciona el plan que mejor se adapte a tus necesidades. ¡Comienza ahora y aprovecha todos los beneficios!</p>
+  
+  <!-- Contenedor de las tarjetas -->
+  <div class="cards-container" id="cards-container">
+    <!-- Tarjeta Free -->
+    <div class="card free">
+      <div class="pricing-block-content">
+        <p class="pricing-plan">Starter</p>
+        <div class="price-value">
+          <p class="price-number">€<span class="price-integer">0</span></p>
+          <div id="priceDiscountCent">/mes</div>
+        </div>
+        <ul class="check-list">
+          <li class="check-list-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-circle" viewBox="0 0 16 16">
+              <path d="M12.354 4.646a1 1 0 0 1 0 1.414l-6 6a1 1 0 0 1-1.414 0l-3-3a1 1 0 0 1 1.414-1.414L6 9.586l5.646-5.64a1 1 0 0 1 1.414 0z"/>
+            </svg>
+            Hasta 2 listas
+          </li>
+          <li class="check-list-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-circle" viewBox="0 0 16 16">
+              <path d="M12.354 4.646a1 1 0 0 1 0 1.414l-6 6a1 1 0 0 1-1.414 0l-3-3a1 1 0 0 1 1.414-1.414L6 9.586l5.646-5.64a1 1 0 0 1 1.414 0z"/>
+            </svg>
+            10 Productos por lista
+          </li>
+          <li class="check-list-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-circle" viewBox="0 0 16 16">
+              <path d="M12.354 4.646a1 1 0 0 1 0 1.414l-6 6a1 1 0 0 1-1.414 0l-3-3a1 1 0 0 1 1.414-1.414L6 9.586l5.646-5.64a1 1 0 0 1 1.414 0z"/>
+            </svg>
+            1 invitación por lista
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Tarjeta Premium -->
+    <div class="card premium">
+      <div class="pricing-block-content">
+        <p class="pricing-plan">Premium</p>
+        <div class="price-value">
+          <p class="price-number">€<span class="price-integer">3</span></p>
+          <div id="priceDiscountCent">/mes</div>
+        </div>
+        <ul class="check-list">
+          <li class="check-list-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-circle" viewBox="0 0 16 16">
+              <path d="M12.354 4.646a1 1 0 0 1 0 1.414l-6 6a1 1 0 0 1-1.414 0l-3-3a1 1 0 0 1 1.414-1.414L6 9.586l5.646-5.64a1 1 0 0 1 1.414 0z"/>
+            </svg>
+            Listas ilimitadas
+          </li>
+          <li class="check-list-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-circle" viewBox="0 0 16 16">
+              <path d="M12.354 4.646a1 1 0 0 1 0 1.414l-6 6a1 1 0 0 1-1.414 0l-3-3a1 1 0 0 1 1.414-1.414L6 9.586l5.646-5.64a1 1 0 0 1 1.414 0z"/>
+            </svg>
+            Productos ilimitados
+          </li>
+          <li class="check-list-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-circle" viewBox="0 0 16 16">
+              <path d="M12.354 4.646a1 1 0 0 1 0 1.414l-6 6a1 1 0 0 1-1.414 0l-3-3a1 1 0 0 1 1.414-1.414L6 9.586l5.646-5.64a1 1 0 0 1 1.414 0z"/>
+            </svg>
+            Invitaciones ilimitadas
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>

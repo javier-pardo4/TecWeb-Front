@@ -19,7 +19,7 @@ export class StripePaymentComponent implements OnInit {
   constructor(private router: Router) {}
 
   ngOnInit(): void {
-    loadStripe('pk_test_51Q7a8sP9Eym6eygIl7EnMULYHnduzW2u5uuxcyRoM14NHkxSfZuhsL8xUFgqIJmvY2jatT78rUnmbTlCf8jULSbg003u5F6GZF').then((stripe) => {
+    loadStripe('INTRODUCE TU API KEY PUBLIC DE STRIPE').then((stripe) => {
       if (stripe) {
         this.stripe = stripe;
         this.elements = stripe.elements();

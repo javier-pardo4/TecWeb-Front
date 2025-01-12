@@ -430,6 +430,9 @@ body {
     width: 80%;
     max-width: 450px;
   }
+  .card {
+    width: 30%; /* Ajusta el ancho para pantallas medianas */
+  }
 }
 
 @media (max-width: 1024px) {
@@ -448,6 +451,9 @@ body {
   .payment-container {
     width: 80%;
     max-width: 400px;
+  }
+  .card {
+    width: 40%; /* Ajusta el ancho para pantallas medianas */
   }
 }
 
@@ -489,6 +495,10 @@ body {
   .stripe-form button {
     font-size: 16px;
   }
+  .card {
+    width: 80%; /* Ocupa casi todo el ancho en pantallas móviles */
+    margin-bottom: 20px; /* Espacio entre las tarjetas */
+  }
 }
 
 @media (max-width: 480px) {
@@ -513,5 +523,9 @@ body {
   .stripe-form button {
     font-size: 16px;
     padding: 12px;
+  }
+  .card {
+    width: 90%; /* Más ancho para teléfonos pequeños */
+    margin-bottom: 15px; /* Asegura buen espaciado */
   }
 }
